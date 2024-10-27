@@ -1,8 +1,8 @@
 export interface Duty {
-    id: number;
+    id?: number;
     name: string;
     title: string;
     description?: string;
     status: string;
-    created_at: Date;
+    created_at?: Date;
 }
