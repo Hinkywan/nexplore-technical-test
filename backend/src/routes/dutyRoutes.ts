@@ -9,5 +9,7 @@ router.post('/duties', dutyController.createDuty);
 router.get('/duties', dutyController.getAllDuties);
 // Read
 router.get('/duties/:id', dutyController.getDutyById);
+// Update
+router.put('/duties/:id', dutyController.updateDuty);
 
 export default router;
