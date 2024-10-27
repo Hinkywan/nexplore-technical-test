@@ -8,7 +8,7 @@ export const createDuty = async (req: Request, res: Response, next: NextFunction
     const duty: Duty = req.body;
     try {
         const newDuty: Duty = await dutyService.createDuty(duty);
-        res.json({
+        res.status(201).json({
             status: 'success',
             data: newDuty
         });
@@ -23,7 +23,7 @@ export const createDuty = async (req: Request, res: Response, next: NextFunction
 export const getAllDuties = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
     try {
         const duties: Duty[] = await dutyService.getAllDuties();
-        res.json({
+        res.status(200).json({
             status: 'success',
             data: duties
         });
@@ -44,7 +44,7 @@ export const getDutyById = async (req: Request, res: Response, next: NextFunctio
             error.status = 404;
             return next(error);
         }
-        res.json({
+        res.status(200).json({
             status: 'success',
             data: duty
         });
@@ -66,7 +66,7 @@ export const updateDuty = async (req: Request, res: Response, next: NextFunction
             error.status = 404;
             return next(error);
         }
-        res.json({
+        res.status(200).json({
             status: 'success',
             data: updatedDuty
         });
@@ -87,7 +87,7 @@ export const deleteDuty = async (req: Request, res: Response, next: NextFunction
             error.status = 404;
             return next(error);
         }
-        res.json({
+        res.status(204).json({
             status: 'success',
             data: null
         });
