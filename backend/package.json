@@ -4,9 +4,28 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
     "start": "tsc && node dist/app.js",
     "dev": "ts-node-dev --respawn --transpile-only src/app.ts"
+  },
+  "jest": {
+    "preset": "ts-jest",
+    "testEnvironment": "node",
+    "moduleFileExtensions": [
+      "js",
+      "json",
+      "ts"
+    ],
+    "transform": {
+      "^.+\\.(t|j)s$": "ts-jest"
+    },
+    "testMatch": [
+      "**/tests/**/*.test.(t|j)s"
+    ],
+    "moduleDirectories": [
+      "node_modules",
+      "src"
+    ]
   },
   "keywords": [],
   "author": "",
@@ -18,7 +37,12 @@
   },
   "devDependencies": {
     "@types/express": "^5.0.0",
+    "@types/jest": "^29.5.14",
     "@types/node": "^22.8.0",
+    "@types/supertest": "^6.0.2",
+    "jest": "^29.7.0",
+    "supertest": "^7.0.0",
+    "ts-jest": "^29.2.5",
     "ts-node-dev": "^2.0.0",
     "typescript": "^5.6.3"
   }
