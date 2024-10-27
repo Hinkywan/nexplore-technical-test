@@ -1,7 +1,12 @@
 import { Router } from 'express';
-import * as dutyController from '../controllers/dutyController';
+import { DutyService } from '../services/dutyService';
+import { DutyController } from '../controllers/dutyController';
+import { DutyModel } from '../models/dutyModel';
 
 const router = Router();
+const dutyModel = new DutyModel();
+const dutyService = new DutyService(dutyModel);
+const dutyController = new DutyController(dutyService);
 
 // Create
 router.post('/duties', dutyController.createDuty);

@@ -1,27 +1,32 @@
 import { Duty } from "../interfaces/dutyIneterface";
-import * as dutyModel from '../models/dutyModel';
+import { DutyModel } from "../models/dutyModel";
 
-// Create
-export const createDuty = async (duty: Duty): Promise<Duty> => {
-    return await dutyModel.createDuty(duty);
-}
+export class DutyService {
+    constructor(private dutyModel: DutyModel) {
+    }
 
-// Read
-export const getAllDuties = async (): Promise<Duty[]> => {
-    return await dutyModel.getAllDuties();
-}
+    // Create
+    public createDuty = async (duty: Duty): Promise<Duty> => {
+        return await this.dutyModel.createDuty(duty);
+    }
 
-// Read
-export const getDutyById = async (id: number): Promise<Duty> => {
-    return await dutyModel.getDutyById(id);
-}
+    // Read
+    public getAllDuties = async (): Promise<Duty[]> => {
+        return await this.dutyModel.getAllDuties();
+    }
 
-// Update
-export const updateDuty = async (id: number, duty: Duty): Promise<Duty> => {
-    return await dutyModel.updateDuty(id, duty);
-}
+    // Read
+    public getDutyById = async (id: number): Promise<Duty> => {
+        return await this.dutyModel.getDutyById(id);
+    }
 
-// Delete
-export const deleteDuty = async (id: number): Promise<void> => {
-    await dutyModel.deleteDuty(id);
+    // Update
+    public updateDuty = async (id: number, duty: Duty): Promise<Duty> => {
+        return await this.dutyModel.updateDuty(id, duty);
+    }
+
+    // Delete
+    public deleteDuty = async (id: number): Promise<number | null> => {
+        return await this.dutyModel.deleteDuty(id);
+    }
 }
