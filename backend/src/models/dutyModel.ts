@@ -24,3 +24,8 @@ export const updateDuty = async (id: number, duty: Duty): Promise<Duty> => {
     const result = await pool.query<Duty>('UPDATE duties SET name = $1, title = $2, description = $3, status = $4 WHERE id = $5 RETURNING *', [duty.name, duty.title, duty.description, duty.status, id]);
     return result.rows[0];
 }
+
+// Delete
+export const deleteDuty = async (id: number): Promise<void> => {
+    await pool.query('DELETE FROM duties WHERE id = $1', [id]);
+}

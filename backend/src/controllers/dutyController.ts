@@ -85,3 +85,24 @@ export const updateDuty = async (req: Request, res: Response): Promise<void> => 
         });
     }
 }
+
+// Delete
+export const deleteDuty = async (req: Request, res: Response): Promise<void> => {
+    const id: number = parseInt(req.params.id);
+    try {
+        await dutyService.deleteDuty(id);
+        res.json({
+            status: 'success',
+            data: null
+        });
+    } catch (err) {
+        console.error((err as Error).message);
+        res.status(500).json({
+            status: 'error',
+            error: {
+                code: 'INTERNAL_SERVER_ERROR',
+                message: (err as Error).message
+            }
+        });
+    }
+}

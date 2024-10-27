@@ -20,3 +20,8 @@ export const getDutyById = async (id: number): Promise<Duty> => {
 export const updateDuty = async (id: number, duty: Duty): Promise<Duty> => {
     return await dutyModel.updateDuty(id, duty);
 }
+
+// Delete
+export const deleteDuty = async (id: number): Promise<void> => {
+    await dutyModel.deleteDuty(id);
+}

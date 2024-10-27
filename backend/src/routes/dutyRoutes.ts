@@ -11,5 +11,7 @@ router.get('/duties', dutyController.getAllDuties);
 router.get('/duties/:id', dutyController.getDutyById);
 // Update
 router.put('/duties/:id', dutyController.updateDuty);
+// Delete
+router.delete('/duties/:id', dutyController.deleteDuty);
 
 export default router;
