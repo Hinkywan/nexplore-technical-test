@@ -39,6 +39,11 @@ export const getDutyById = async (req: Request, res: Response, next: NextFunctio
     const id: number = parseInt(req.params.id);
     try {
         const duty: Duty = await dutyService.getDutyById(id);
+        if (!duty) {
+            const error: CustomError = new Error('Duty not found') as CustomError;
+            error.status = 404;
+            return next(error);
+        }
         res.json({
             status: 'success',
             data: duty
@@ -56,6 +61,11 @@ export const updateDuty = async (req: Request, res: Response, next: NextFunction
     const duty: Duty = req.body;
     try {
         const updatedDuty: Duty = await dutyService.updateDuty(id, duty);
+        if (!updatedDuty) {
+            const error: CustomError = new Error('Duty not found') as CustomError;
+            error.status = 404;
+            return next(error);
+        }
         res.json({
             status: 'success',
             data: updatedDuty
@@ -71,7 +81,12 @@ export const updateDuty = async (req: Request, res: Response, next: NextFunction
 export const deleteDuty = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
     const id: number = parseInt(req.params.id);
     try {
-        await dutyService.deleteDuty(id);
+        const duty: Duty = await dutyService.getDutyById(id);
+        if (!duty) {
+            const error: CustomError = new Error('Duty not found') as CustomError;
+            error.status = 404;
+            return next(error);
+        }
         res.json({
             status: 'success',
             data: null
