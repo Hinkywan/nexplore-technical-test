@@ -23,3 +23,44 @@ export const createDuty = async (req: Request, res: Response): Promise<void> => 
         });
     }
 }
+
+// Read
+export const getAllDuties = async (req: Request, res: Response): Promise<void> => {
+    try {
+        const duties: Duty[] = await dutyService.getAllDuties();
+        res.json({
+            status: 'success',
+            data: duties
+        });
+    } catch (err) {
+        console.error((err as Error).message);
+        res.status(500).json({
+            status: 'error',
+            error: {
+                code: 'INTERNAL_SERVER_ERROR',
+                message: (err as Error).message
+            }
+        });
+    }
+}
+
+// Read
+export const getDutyById = async (req: Request, res: Response): Promise<void> => {
+    const id: number = parseInt(req.params.id);
+    try {
+        const duty: Duty = await dutyService.getDutyById(id);
+        res.json({
+            status: 'success',
+            data: duty
+        });
+    } catch (err) {
+        console.error((err as Error).message);
+        res.status(500).json({
+            status: 'error',
+            error: {
+                code: 'INTERNAL_SERVER_ERROR',
+                message: (err as Error).message
+            }
+        });
+    }
+}

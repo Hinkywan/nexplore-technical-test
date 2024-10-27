@@ -5,3 +5,13 @@ import * as dutyModel from '../models/dutyModel';
 export const createDuty = async (duty: Duty): Promise<Duty> => {
     return await dutyModel.createDuty(duty);
 }
+
+// Read
+export const getAllDuties = async (): Promise<Duty[]> => {
+    return await dutyModel.getAllDuties();
+}
+
+// Read
+export const getDutyById = async (id: number): Promise<Duty> => {
+    return await dutyModel.getDutyById(id);
+}
