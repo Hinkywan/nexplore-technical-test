@@ -1,7 +1,8 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes, Link, Navigate } from 'react-router-dom';
 import { Layout, Menu } from 'antd';
-import Duties from './pages/Duties';
+import Duties from './pages/Duty/DutyList';
+import EditDuty from './pages/Duty/EditDuty';
 import './App.scss';
 
 const { Header, Content, Footer } = Layout;
@@ -21,6 +22,7 @@ const App: React.FC = () => {
         <Content className="content">
           <Routes>
             <Route path="/duties" element={<Duties />} />
+            <Route path="/duties/edit/:id" element={<EditDuty />} />
             {/* Add other routes as needed */}
             <Route path="*" element={<Navigate to="/duties" />} />
           </Routes>

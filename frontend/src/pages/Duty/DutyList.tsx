@@ -1,6 +1,8 @@
+// frontend/src/pages/Duties.tsx
 import React, { useEffect, useState } from 'react';
 import { Table, Button } from 'antd';
-import { getDuties } from '../services/dutyApi';
+import { useNavigate } from 'react-router-dom';
+import { getDuties } from '../../services/dutyApi';
 
 interface Duty {
     id: number;
@@ -10,6 +12,7 @@ interface Duty {
 
 const Duties: React.FC = () => {
     const [duties, setDuties] = useState<Duty[]>([]);
+    const navigate = useNavigate();
 
     useEffect(() => {
         const fetchDuties = async () => {
@@ -39,7 +42,7 @@ const Duties: React.FC = () => {
             title: 'Action',
             key: 'action',
             render: (text: string, record: Duty) => (
-                <Button type="primary">Edit</Button>
+                <Button type="primary" onClick={() => navigate(`/duties/edit/${record.id}`)}>Edit</Button>
             ),
         },
     ];

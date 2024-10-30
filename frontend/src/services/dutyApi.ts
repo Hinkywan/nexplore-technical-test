@@ -19,4 +19,12 @@ export const createDuty = async (duty: any) => {
     return await axios.post(`${API_URL}/duties`, duty);
 };
 
+export const getDutyById = async (id: number) => {
+    return await axios.get(`${API_URL}/duties/${id}`);
+};
+
+export const updateDuty = async (id: number, duty: any) => {
+    return await axios.put(`${API_URL}/duties/${id}`, duty);
+};
+
 // Add other API calls as needed
