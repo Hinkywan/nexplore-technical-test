@@ -1,13 +1,21 @@
 import express, { Express, Request, Response } from 'express';
 import dutyRoutes from './routes/dutyRoutes';
 import errorHandler from './middlewares/errorHandler';
+import cors from 'cors';
 
 // Create a new express application instance
 const app: Express = express();
-const port = 3000;
+const port = process.env.PORT || 5000;
 
 // Parse the request body as JSON
 app.use(express.json());
+
+// Enable CORS for all routes
+app.use(cors({
+    origin: process.env.CORS_ORIGIN || 'http://localhost:3000',
+    methods: 'GET,POST,PUT,DELETE',
+    allowedHeaders: 'Content-Type,Authorization'
+}));
 
 // implement the duty routes
 app.use('/api', dutyRoutes);
