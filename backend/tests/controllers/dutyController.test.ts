@@ -95,10 +95,7 @@ describe('Duty Controller', () => {
         request.params = { id: id.toString() };
         await dutyController.deleteDuty(request, response, next);
         expect(dutyService.deleteDuty).toHaveBeenCalledWith(id);
-        expect(response.status).toHaveBeenCalledWith(200);
-        expect(response.json).toHaveBeenCalledWith({
-            data: null,
-            status: 'success'
-        });
+        expect(response.status).toHaveBeenCalledWith(204);
+        expect(response.json).not.toHaveBeenCalled();
     });
 });
