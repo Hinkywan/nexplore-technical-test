@@ -12,7 +12,7 @@ const CreateDuty: React.FC = () => {
         navigate('/duties');
     };
 
-    return <DutyForm initialValues={{ name: '', description: '' }} onFinish={onFinish} />;
+    return <DutyForm initialValues={{ name: '', title: '', description: '', status: 'to-do' }} onFinish={onFinish} />;
 };
 
 export default CreateDuty;
