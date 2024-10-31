@@ -34,9 +34,19 @@ const Duties: React.FC = () => {
             key: 'name',
         },
         {
+            title: 'Title',
+            dataIndex: 'title',
+            key: 'title',
+        },
+        {
             title: 'Description',
             dataIndex: 'description',
             key: 'description',
+        },
+        {
+            title: 'Status',
+            dataIndex: 'status',
+            key: 'status',
         },
         {
             title: 'Action',
@@ -47,7 +57,14 @@ const Duties: React.FC = () => {
         },
     ];
 
-    return <Table dataSource={duties} columns={columns} />;
+    return (
+        <div>
+            <Button type="primary" onClick={() => navigate('/duties/create')} style={{ marginBottom: 16 }}>
+                Create Duty
+            </Button>
+            <Table dataSource={duties} columns={columns} />
+        </div>
+    );
 };
 
 export default Duties;
