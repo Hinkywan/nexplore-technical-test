@@ -91,7 +91,7 @@ export class DutyController {
                 error.status = 404;
                 return next(error);
             }
-            res.status(204);
+            res.status(204).end();
         } catch (err) {
             const error: CustomError = err as CustomError;
             error.status = 500;
