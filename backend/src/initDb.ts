@@ -9,7 +9,7 @@ const createTables = async () => {
         name VARCHAR(255) NOT NULL,
         title VARCHAR(255) NOT NULL,
         description TEXT,
-        status VARCHAR(1) NOT NULL,
+        status VARCHAR(20) NOT NULL,
         created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
       );
     `);
