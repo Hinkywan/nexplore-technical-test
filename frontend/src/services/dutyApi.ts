@@ -27,4 +27,8 @@ export const updateDuty = async (id: number, duty: any) => {
     return await axios.put(`${API_URL}/duties/${id}`, duty);
 };
 
+export const deleteDuty = async (id: number) => {
+    return await axios.delete(`${API_URL}/duties/${id}`);
+};
+
 // Add other API calls as needed

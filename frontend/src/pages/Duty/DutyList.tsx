@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import { Table, Button } from 'antd';
 import { useNavigate } from 'react-router-dom';
-import { getDuties } from '../../services/dutyApi';
+import { getDuties, deleteDuty } from '../../services/dutyApi';
 
 interface Duty {
     id: number;
@@ -21,6 +21,20 @@ const Duties: React.FC = () => {
         };
         fetchDuties();
     }, []);
+
+    const handleDelete = async (id: number) => {
+        try {
+            const response = await deleteDuty(id);
+            if (response.status === 204) {
+                console.log(response.status);
+                setDuties(duties.filter(duty => duty.id !== id));
+            } else {
+                console.error('Failed to delete duty:', response.statusText);
+            }
+        } catch (error) {
+            console.error('Failed to delete duty:', error);
+        }
+    };
 
     const columns = [
         {
@@ -52,7 +66,10 @@ const Duties: React.FC = () => {
             title: 'Action',
             key: 'action',
             render: (text: string, record: Duty) => (
-                <Button type="primary" onClick={() => navigate(`/duties/edit/${record.id}`)}>Edit</Button>
+                <div style={{ display: 'flex', gap: '8px' }}>
+                    <Button type="primary" onClick={() => navigate(`/duties/edit/${record.id}`)}>Edit</Button>
+                    <Button type="default" danger onClick={() => handleDelete(record.id)}>Delete</Button>
+                </div>
             ),
         },
     ];
