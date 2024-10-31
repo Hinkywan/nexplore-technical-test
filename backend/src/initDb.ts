@@ -6,8 +6,8 @@ const createTables = async () => {
         await client.query(`
       CREATE TABLE IF NOT EXISTS duties (
         id SERIAL PRIMARY KEY,
-        name VARCHAR(255) NOT NULL,
-        title VARCHAR(255) NOT NULL,
+        name VARCHAR(50) NOT NULL,
+        title VARCHAR(50) NOT NULL,
         description TEXT,
         status VARCHAR(20) NOT NULL,
         created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
