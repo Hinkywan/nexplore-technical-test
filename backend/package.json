@@ -6,7 +6,8 @@
   "scripts": {
     "test": "jest",
     "start": "tsc && node dist/app.js",
-    "dev": "ts-node-dev --respawn --transpile-only src/app.ts"
+    "dev": "ts-node-dev --respawn --transpile-only src/app.ts",
+    "migrate": "ts-node scripts/runMigrations.ts"
   },
   "jest": {
     "preset": "ts-jest",
