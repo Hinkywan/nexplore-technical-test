@@ -1,6 +1,27 @@
-# Getting Started with Create React App
+# Frontend Project
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is the frontend part of the project, built with React and TypeScript.
+
+## Project Structure
+
+```
+/frontend
+├── public
+│   ├── index.html
+│   └── ...
+├── src
+│   ├── assets
+│   ├── components
+│   ├── hooks
+│   ├── pages
+│   ├── services
+│   ├── App.tsx
+│   ├── index.tsx
+│   └── ...
+├── package.json
+├── tsconfig.json
+└── ...
+```
 
 ## Available Scripts
 
@@ -39,8 +60,14 @@ Instead, it will copy all the configuration files and the transitive dependencie
 
 You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Environment Variables
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+The project uses the following environment variables:
+
+- [`REACT_APP_ENV`]: The environment in which the app is running (e.g., development, production).
+- [`REACT_APP_API_URL`]: The base URL for the API.
+- [`REACT_APP_CORS_ORIGIN`]: The allowed CORS origin.
+
+You can find a sample environment file in [`.env.sample`]
+
