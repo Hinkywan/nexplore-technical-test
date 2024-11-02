@@ -2,19 +2,25 @@
 
 This is the frontend part of the project, built with React and TypeScript.
 
+## Table of Contents
+
+- [Project Structure](#project-structure)
+- [Available Scripts](#available-scripts)
+- [Environment Variables](#environment-variables)
+
 ## Project Structure
 
 ```
-/frontend
-├── public
+frontend/
+├── public/
 │   ├── index.html
 │   └── ...
-├── src
-│   ├── assets
-│   ├── components
-│   ├── hooks
-│   ├── pages
-│   ├── services
+├── src/
+│   ├── assets/
+│   ├── components/
+│   ├── hooks/
+│   ├── pages/
+│   ├── services/
 │   ├── App.tsx
 │   ├── index.tsx
 │   └── ...
