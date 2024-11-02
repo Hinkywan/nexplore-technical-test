@@ -2,16 +2,20 @@ import { Duty } from "../interfaces/dutyIneterface";
 import { NextFunction, Request, Response } from 'express';
 import CustomError from "../utils/CustomError";
 import { DutyService } from "../services/dutyService";
+import { CreateDutyDto } from "../dto/duty/CreateDutyDto";
+import { UpdateDutyDto } from "../dto/duty/UpdateDutyDto";
+import { plainToClass } from "class-transformer";
+import { ParamsDto } from "../dto/paramsDto";
 
 export class DutyController {
     constructor(private dutyService: DutyService) {
     }
 
-    // Craete
+    // Create
     public createDuty = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
-        const duty: Duty = req.body;
+        const createDutyDto: CreateDutyDto = plainToClass(CreateDutyDto, req.body);
         try {
-            const newDuty: Duty = await this.dutyService.createDuty(duty);
+            const newDuty: Duty = await this.dutyService.createDuty(createDutyDto);
             res.status(201).json({
                 status: 'success',
                 data: newDuty
@@ -36,9 +40,9 @@ export class DutyController {
 
     // Read
     public getDutyById = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
-        const id: number = parseInt(req.params.id);
+        const paramsDto: ParamsDto = plainToClass(ParamsDto, req.params);
         try {
-            const duty: Duty = await this.dutyService.getDutyById(id);
+            const duty: Duty = await this.dutyService.getDutyById(paramsDto.id);
             if (!duty) {
                 throw new CustomError('Duty not found', 404);
             }
@@ -53,10 +57,10 @@ export class DutyController {
 
     // Update
     public updateDuty = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
-        const id: number = parseInt(req.params.id);
-        const duty: Duty = req.body;
+        const paramsDto: ParamsDto = plainToClass(ParamsDto, req.params);
+        const updateDutyDto: UpdateDutyDto = plainToClass(UpdateDutyDto, req.body);
         try {
-            const updatedDuty: Duty = await this.dutyService.updateDuty(id, duty);
+            const updatedDuty: Duty = await this.dutyService.updateDuty(paramsDto.id, updateDutyDto);
             if (!updatedDuty) {
                 throw new CustomError('Duty not found', 404);
             }
@@ -71,9 +75,9 @@ export class DutyController {
 
     // Delete
     public deleteDuty = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
-        const id: number = parseInt(req.params.id);
+        const paramsDto: ParamsDto = plainToClass(ParamsDto, req.params);
         try {
-            const duty: number | null = await this.dutyService.deleteDuty(id);
+            const duty: number | null = await this.dutyService.deleteDuty(paramsDto.id);
             if (!duty) {
                 throw new CustomError('Duty not found', 404);
             }
