@@ -8,8 +8,12 @@ const CreateDuty: React.FC = () => {
     const navigate = useNavigate();
 
     const onFinish = async (values: any) => {
-        await createDuty(values);
-        navigate('/duties');
+        try {
+            await createDuty(values);
+            navigate('/duties');
+        } catch (error) {
+            console.error('Failed to create duty:', error);
+        }
     };
 
     return <DutyForm initialValues={{ name: '', title: '', description: '', status: 'to-do' }} onFinish={onFinish} />;

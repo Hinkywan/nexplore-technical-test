@@ -16,8 +16,12 @@ const Duties: React.FC = () => {
 
     useEffect(() => {
         const fetchDuties = async () => {
-            const response = await getDuties();
-            setDuties(response.data.data);
+            try {
+                const response = await getDuties();
+                setDuties(response.data.data);
+            } catch (error) {
+                console.error('Failed to fetch duties:', error);
+            }
         };
         fetchDuties();
     }, []);

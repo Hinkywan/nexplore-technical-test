@@ -13,15 +13,23 @@ const EditDuty: React.FC = () => {
 
     useEffect(() => {
         const fetchDuty = async () => {
-            const response = await getDutyById(Number(id));
-            setDuty(response.data.data);
+            try {
+                const response = await getDutyById(Number(id));
+                setDuty(response.data.data);
+            } catch (error) {
+                console.error('Failed to fetch duty:', error);
+            }
         };
         fetchDuty();
     }, [id]);
 
     const onFinish = async (values: Duty) => {
-        await updateDuty(Number(id), values);
-        navigate('/duties');
+        try {
+            await updateDuty(Number(id), values);
+            navigate('/duties');
+        } catch (error) {
+            console.error('Failed to update duty:', error);
+        }
     };
 
     if (!duty) {
