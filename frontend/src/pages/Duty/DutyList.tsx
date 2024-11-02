@@ -20,7 +20,7 @@ const Duties: React.FC = () => {
         const fetchDuties = async () => {
             try {
                 const response = await getDuties();
-                setDuties(response.data.data);
+                setDuties(response.data?.data);
             } catch (error) {
                 console.error('Failed to fetch duties:', error);
                 setError('Failed to fetch duties');

@@ -4,12 +4,13 @@ import { useNavigate } from 'react-router-dom';
 import { createDuty } from '../../services/dutyApi';
 import DutyForm from '../../components/DutyForm';
 import { GlobalErrorContext } from '../../contexts/GlobalErrorContext';
+import { Duty } from '../../types/Duty';
 
 const CreateDuty: React.FC = () => {
     const navigate = useNavigate();
     const { setError } = useContext(GlobalErrorContext);
 
-    const onFinish = async (values: any) => {
+    const onFinish = async (values: Duty) => {
         try {
             await createDuty(values);
             navigate('/duties');

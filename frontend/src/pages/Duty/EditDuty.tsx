@@ -17,7 +17,7 @@ const EditDuty: React.FC = () => {
         const fetchDuty = async () => {
             try {
                 const response = await getDutyById(Number(id));
-                setDuty(response.data.data);
+                setDuty(response.data?.data);
             } catch (error) {
                 console.error('Failed to fetch duty:', error);
                 setError('Failed to fetch duty');
