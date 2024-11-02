@@ -4,12 +4,7 @@ import { Table, Button } from 'antd';
 import { useNavigate } from 'react-router-dom';
 import { getDuties, deleteDuty } from '../../services/dutyApi';
 import { GlobalErrorContext } from '../../contexts/GlobalErrorContext';
-
-interface Duty {
-    id: number;
-    name: string;
-    description: string;
-}
+import { Duty } from '../../types/Duty';
 
 const Duties: React.FC = () => {
     const [duties, setDuties] = useState<Duty[]>([]);
@@ -76,7 +71,7 @@ const Duties: React.FC = () => {
             render: (text: string, record: Duty) => (
                 <div style={{ display: 'flex', gap: '8px' }}>
                     <Button type="primary" onClick={() => navigate(`/duties/edit/${record.id}`)}>Edit</Button>
-                    <Button type="default" danger onClick={() => handleDelete(record.id)}>Delete</Button>
+                    <Button type="default" danger onClick={() => record.id !== undefined && handleDelete(record.id)}>Delete</Button>
                 </div>
             ),
         },
