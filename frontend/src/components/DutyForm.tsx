@@ -18,7 +18,7 @@ const DutyForm: React.FC<DutyFormProps> = ({ initialValues, onFinish }) => {
                         label="Name"
                         rules={[
                             { required: true, message: 'Please input the name!' },
-                            { max: 50, message: 'Name cannot be longer than 50 characters' }
+                            { max: 100, message: 'Name cannot be longer than 100 characters' }
                         ]}
                     >
                         <Input />
@@ -30,7 +30,7 @@ const DutyForm: React.FC<DutyFormProps> = ({ initialValues, onFinish }) => {
                         label="Title"
                         rules={[
                             { required: true, message: 'Please input the title!' },
-                            { max: 50, message: 'Title cannot be longer than 50 characters' }
+                            { max: 100, message: 'Title cannot be longer than 100 characters' }
                         ]}
                     >
                         <Input />
