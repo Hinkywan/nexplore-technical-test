@@ -1,6 +1,6 @@
 import { Duty } from "../interfaces/dutyIneterface";
 import { NextFunction, Request, Response } from 'express';
-import { CustomError } from '../interfaces/CustomError';
+import CustomError from "../utils/CustomError";
 import { DutyService } from "../services/dutyService";
 
 export class DutyController {
@@ -17,9 +17,7 @@ export class DutyController {
                 data: newDuty
             });
         } catch (err) {
-            const error: CustomError = err as CustomError;
-            error.status = 500;
-            next(error);
+            next(err);
         }
     }
 
@@ -32,9 +30,7 @@ export class DutyController {
                 data: duties
             });
         } catch (err) {
-            const error: CustomError = err as CustomError;
-            error.status = 500;
-            next(error);
+            next(err);
         }
     }
 
@@ -44,18 +40,14 @@ export class DutyController {
         try {
             const duty: Duty = await this.dutyService.getDutyById(id);
             if (!duty) {
-                const error: CustomError = new Error('Duty not found') as CustomError;
-                error.status = 404;
-                return next(error);
+                throw new CustomError('Duty not found', 404);
             }
             res.status(200).json({
                 status: 'success',
                 data: duty
             });
         } catch (err) {
-            const error: CustomError = err as CustomError;
-            error.status = 500;
-            next(error);
+            next(err);
         }
     }
 
@@ -66,18 +58,14 @@ export class DutyController {
         try {
             const updatedDuty: Duty = await this.dutyService.updateDuty(id, duty);
             if (!updatedDuty) {
-                const error: CustomError = new Error('Duty not found') as CustomError;
-                error.status = 404;
-                return next(error);
+                throw new CustomError('Duty not found', 404);
             }
             res.status(200).json({
                 status: 'success',
                 data: updatedDuty
             });
         } catch (err) {
-            const error: CustomError = err as CustomError;
-            error.status = 500;
-            next(error);
+            next(err);
         }
     }
 
@@ -87,15 +75,11 @@ export class DutyController {
         try {
             const duty: number | null = await this.dutyService.deleteDuty(id);
             if (!duty) {
-                const error: CustomError = new Error('Duty not found') as CustomError;
-                error.status = 404;
-                return next(error);
+                throw new CustomError('Duty not found', 404);
             }
             res.status(204).end();
         } catch (err) {
-            const error: CustomError = err as CustomError;
-            error.status = 500;
-            next(error);
+            next(err);
         }
     }
 }
