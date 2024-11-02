@@ -1,5 +1,5 @@
 import express, { Express, Request, Response } from 'express';
-import dutyRoutes from './routes/dutyRoutes';
+import routes from './routes';
 import errorHandler from './middlewares/errorHandler';
 import cors from 'cors';
 
@@ -17,8 +17,8 @@ app.use(cors({
     allowedHeaders: 'Content-Type,Authorization'
 }));
 
-// implement the duty routes
-app.use('/api', dutyRoutes);
+// Use routes
+app.use('/api', routes);
 
 // implement the global error handler middleware
 app.use(errorHandler);

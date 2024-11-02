@@ -9,14 +9,14 @@ const dutyService = new DutyService(dutyModel);
 const dutyController = new DutyController(dutyService);
 
 // Create
-router.post('/duties', dutyController.createDuty);
+router.post('/', dutyController.createDuty);
 // Read
-router.get('/duties', dutyController.getAllDuties);
+router.get('/', dutyController.getAllDuties);
 // Read
-router.get('/duties/:id', dutyController.getDutyById);
+router.get('/:id', dutyController.getDutyById);
 // Update
-router.put('/duties/:id', dutyController.updateDuty);
+router.put('/:id', dutyController.updateDuty);
 // Delete
-router.delete('/duties/:id', dutyController.deleteDuty);
+router.delete('/:id', dutyController.deleteDuty);
 
 export default router;
