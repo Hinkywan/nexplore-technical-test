@@ -5,7 +5,7 @@ import Duties from './pages/Duty/DutyList';
 import EditDuty from './pages/Duty/EditDuty';
 import './App.scss';
 import CreateDuty from './pages/Duty/CreateDuty';
-import GlobalErrorProvider from './contexts/GlobalErrorContext';
+import { GlobalErrorProvider } from './contexts/GlobalErrorContext';
 import GlobalErrorPopup from './components/GlobalErrorPopup';
 
 const { Header, Content, Footer } = Layout;

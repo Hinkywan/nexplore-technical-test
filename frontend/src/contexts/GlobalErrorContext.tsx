@@ -1,4 +1,4 @@
-import React, { createContext, useState, PropsWithChildren } from 'react';
+import React, { createContext, useState, PropsWithChildren, ReactNode } from 'react';
 
 interface GlobalErrorContextProps {
     error: string | null;
