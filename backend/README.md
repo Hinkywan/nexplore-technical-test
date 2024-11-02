@@ -70,7 +70,7 @@ The application uses a PostgreSQL database, which is installed and managed via D
 To run the tests, use the following command:
 
 ```sh
-npm test
+npm run test
 ```
 
 ## API Endpoints
