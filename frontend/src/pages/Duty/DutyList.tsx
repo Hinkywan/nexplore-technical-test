@@ -1,8 +1,9 @@
 // frontend/src/pages/Duties.tsx
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Table, Button } from 'antd';
 import { useNavigate } from 'react-router-dom';
 import { getDuties, deleteDuty } from '../../services/dutyApi';
+import { GlobalErrorContext } from '../../contexts/GlobalErrorContext';
 
 interface Duty {
     id: number;
@@ -13,6 +14,7 @@ interface Duty {
 const Duties: React.FC = () => {
     const [duties, setDuties] = useState<Duty[]>([]);
     const navigate = useNavigate();
+    const { setError } = useContext(GlobalErrorContext);
 
     useEffect(() => {
         const fetchDuties = async () => {
@@ -21,22 +23,24 @@ const Duties: React.FC = () => {
                 setDuties(response.data.data);
             } catch (error) {
                 console.error('Failed to fetch duties:', error);
+                setError('Failed to fetch duties');
             }
         };
         fetchDuties();
-    }, []);
+    }, [setError]);
 
     const handleDelete = async (id: number) => {
         try {
             const response = await deleteDuty(id);
             if (response.status === 204) {
-                console.log(response.status);
                 setDuties(duties.filter(duty => duty.id !== id));
             } else {
                 console.error('Failed to delete duty:', response.statusText);
+                setError('Failed to delete duty');
             }
         } catch (error) {
             console.error('Failed to delete duty:', error);
+            setError('Failed to delete duty');
         }
     };
 

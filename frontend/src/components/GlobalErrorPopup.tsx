@@ -9,7 +9,7 @@ const GlobalErrorPopup: React.FC = () => {
     return (
         <Modal
             title="Error"
-            visible={!!error}
+            open={error !== null}
             onOk={() => setError(null)}
             onCancel={() => setError(null)}
         >
