@@ -44,10 +44,6 @@ This technical test aims to create an end-to-end web application that allows the
 
 4. Set up the environment variables for the Frontend project. Create a `.env` file in the `frontend` directory and add the following variables:
 
-    ```sh
-    cd ../frontend/
-    ```
-
     ```env
     REACT_APP_ENV=production
 
