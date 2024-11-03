@@ -21,6 +21,9 @@
     "jsx": "react-jsx"
   },
   "include": [
-    "src"
+    "src",
+    "test/pages/duty/EditDuty.test.tsx",
+    "test/pages/duty/DutyList.test.tsx",
+    "test/pages/duty/CreateDuty.test.tsx"
   ]
 }

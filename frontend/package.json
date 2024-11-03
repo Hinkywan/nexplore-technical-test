@@ -4,8 +4,6 @@
   "private": true,
   "proxy": "http://localhost:5000",
   "dependencies": {
-    "@testing-library/jest-dom": "^5.17.0",
-    "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "@types/jest": "^27.5.2",
     "@types/node": "^16.18.116",
@@ -13,6 +11,7 @@
     "@types/react-dom": "^18.3.1",
     "antd": "^5.21.6",
     "axios": "^1.7.7",
+    "axios-mock-adapter": "^2.1.0",
     "nexplore-technical-test": "file:..",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
@@ -25,7 +24,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "jest",
     "eject": "react-scripts eject",
     "serve": "serve -s build -l 3000"
   },
@@ -48,7 +47,27 @@
     ]
   },
   "devDependencies": {
+    "@babel/core": "^7.26.0",
+    "@babel/preset-env": "^7.26.0",
+    "@babel/preset-react": "^7.25.9",
+    "@babel/preset-typescript": "^7.26.0",
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/react": "^16.0.1",
     "@types/axios": "^0.9.36",
-    "@types/react-router-dom": "^5.3.3"
+    "@types/axios-mock-adapter": "^1.9.0",
+    "@types/react-router-dom": "^5.3.3",
+    "babel-jest": "^29.7.0",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^27.5.1"
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.(js|jsx|ts|tsx)$": "babel-jest"
+    },
+    "moduleNameMapper": {
+      "^axios$": "axios/dist/node/axios.cjs",
+      "\\.(css|scss)$": "identity-obj-proxy"
+    },
+    "testEnvironment": "jsdom"
   }
 }

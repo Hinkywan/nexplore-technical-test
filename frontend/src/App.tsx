@@ -1,10 +1,10 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes, Link, Navigate } from 'react-router-dom';
 import { Layout, Menu } from 'antd';
-import Duties from './pages/Duty/DutyList';
-import EditDuty from './pages/Duty/EditDuty';
+import Duties from './pages/duty/DutyList';
+import EditDuty from './pages/duty/EditDuty';
 import './App.scss';
-import CreateDuty from './pages/Duty/CreateDuty';
+import CreateDuty from './pages/duty/CreateDuty';
 import { GlobalErrorProvider } from './contexts/GlobalErrorContext';
 import GlobalErrorPopup from './components/GlobalErrorPopup';
 
