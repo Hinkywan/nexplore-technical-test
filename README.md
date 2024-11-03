@@ -17,7 +17,7 @@ This technical test aims to create an end-to-end web application that allows the
     git clone https://github.com/Hinkywan/nexplore-technical-test.git
     ```
 
-3. Set up the environment variables for Backend project. Create a `.env` file in the root directory and add the following variables:
+2. Set up the environment variables for the Backend project. Create a `.env` file in the root directory and add the following variables:
     
     ```sh
     cd ./backend/
@@ -29,11 +29,12 @@ This technical test aims to create an end-to-end web application that allows the
     DB_NAME=your_db_name
     DB_PASSWORD=your_db_password
     DB_PORT=5432
+    
     PORT=5000
     CORS_ORIGIN=http://localhost:3000
     ```
 
-4. Start the Docker containers:
+3. Start the Docker containers:
 
     ```sh
     docker-compose up -d
@@ -41,7 +42,7 @@ This technical test aims to create an end-to-end web application that allows the
 
     This will start the PostgreSQL database and any other services defined in the `docker-compose.yml` file.
 
-5. Set up the environment variables for Frontend project. Create a `.env` file in the `frontend` directory and add the following variables:
+4. Set up the environment variables for the Frontend project. Create a `.env` file in the `frontend` directory and add the following variables:
 
     ```sh
     cd ../frontend/
@@ -54,7 +55,7 @@ This technical test aims to create an end-to-end web application that allows the
     REACT_APP_CORS_ORIGIN=http://localhost:3000
     ```
 
-6. Navigate back to the root directory and start the application:
+5. Navigate back to the root directory and start the application:
 
     ```sh
     cd ..
@@ -64,7 +65,7 @@ This technical test aims to create an end-to-end web application that allows the
     This will start both the backend and frontend servers.
 
 ## Project Structure
-```
+
 The project structure is as follows:
 
 ```
