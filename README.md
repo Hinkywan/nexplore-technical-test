@@ -30,7 +30,7 @@ This technical test aims to create an end-to-end web application that allows the
     DB_PASSWORD=your_db_password
     DB_PORT=5432
     
-    PORT=5000
+    PORT=4000
     CORS_ORIGIN=http://localhost:3000
     ```
 
@@ -51,7 +51,7 @@ This technical test aims to create an end-to-end web application that allows the
     ```env
     REACT_APP_ENV=production
 
-    REACT_APP_API_URL=http://localhost:5000/api
+    REACT_APP_API_URL=http://localhost:4000/api
     REACT_APP_CORS_ORIGIN=http://localhost:3000
     ```
 

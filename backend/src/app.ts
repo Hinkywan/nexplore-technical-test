@@ -5,7 +5,7 @@ import cors from 'cors';
 
 // Create a new express application instance
 const app: Express = express();
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 4000;
 
 // Parse the request body as JSON
 app.use(express.json());

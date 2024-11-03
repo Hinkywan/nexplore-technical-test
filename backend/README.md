@@ -34,7 +34,7 @@ This is the backend service for the project, built with Node.js, Express, and Po
     DB_NAME=your_db_name
     DB_PASSWORD=your_db_password
     DB_PORT=5432
-    PORT=5000
+    PORT=4000
     CORS_ORIGIN=http://localhost:3000
     ```
 
@@ -63,7 +63,7 @@ The application uses a PostgreSQL database, which is installed and managed via D
     npm run dev
     ```
 
-    The server will start on the port specified in the [.env](http://_vscodecontentref_/1) file (default is 5000).
+    The server will start on the port specified in the [.env](http://_vscodecontentref_/1) file (default is 4000).
 
 ## Running Tests
 
